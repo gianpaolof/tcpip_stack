@@ -35,7 +35,7 @@
 
 #include "../graph.h"
 #include "../Layer3/layer3.h"
-#include "../gluethread/glthread.h"
+#include "../gluethread/glthread.hpp"
 #include "tcpconst.h"
 #include <stdio.h>
 #include <stdlib.h>

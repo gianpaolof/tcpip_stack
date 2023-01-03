@@ -41,7 +41,7 @@
 #include "Layer3/layer3.h"
 #include "utils.h"
 #include "comm.h"
-#include "gluethread/glthread.h"
+#include "gluethread/glthread.hpp"
 #include "CommandParser/libcli.h"
 #include "CommandParser/cmdtlv.h"
 #include "cmdcodes.h"

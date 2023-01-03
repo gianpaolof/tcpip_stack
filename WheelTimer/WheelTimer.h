@@ -2,7 +2,7 @@
 #define __WHEEL_TIMER__
 
 #include <pthread.h>
-#include "../gluethread/glthread.h"
+#include "../gluethread/glthread.hpp"
 
 typedef struct _wheel_timer_elem_t wheel_timer_elem_t;
 typedef void (*app_call_back)(void *arg, int sizeof_arg);
@@ -16,7 +16,7 @@ struct _wheel_timer_elem_t{
 	char is_recurrence;
     glthread_t glue;
 };
-GLTHREAD_TO_STRUCT(glthread_to_wt_elem, wheel_timer_elem_t, glue);
+GLTHREAD_TO_TYPE(glthread_to_wt_elem, wheel_timer_elem_t, glue);
 
 typedef struct _wheel_timer_t {
 	int current_clock_tic;

@@ -34,7 +34,7 @@
 #define __LAYER2__
 
 #include "../net.h"
-#include "../gluethread/glthread.h"
+#include "../gluethread/glthread.hpp"
 #include "../tcpconst.h"
 #include <stdlib.h>  /*for calloc*/
 #include "../graph.h"
@@ -95,7 +95,7 @@ struct arp_pending_entry_{
     unsigned int pkt_size;  /*Including ether net hdr*/
     char pkt[0];
 };
-GLTHREAD_TO_STRUCT(arp_pending_entry_glue_to_arp_pending_entry, \
+GLTHREAD_TO_TYPE(arp_pending_entry_glue_to_arp_pending_entry, \
     arp_pending_entry_t, arp_pending_entry_glue);
 
 
@@ -110,8 +110,8 @@ struct arp_entry_{
      * this ARP resolution*/
     glthread_t arp_pending_list;
 };
-GLTHREAD_TO_STRUCT(arp_glue_to_arp_entry, arp_entry_t, arp_glue);
-GLTHREAD_TO_STRUCT(arp_pending_list_to_arp_entry, arp_entry_t, arp_pending_list);
+GLTHREAD_TO_TYPE(arp_glue_to_arp_entry, arp_entry_t, arp_glue);
+GLTHREAD_TO_TYPE(arp_pending_list_to_arp_entry, arp_entry_t, arp_pending_list);
 
 #define IS_ARP_ENTRIES_EQUAL(arp_entry_1, arp_entry_2)  \
     (strncmp(arp_entry_1->ip_addr.ip_addr, arp_entry_2->ip_addr.ip_addr, 16) == 0 && \

@@ -1,5 +1,5 @@
-CC=gcc
-CFLAGS=-g
+CC=g++
+CFLAGS=-g  -fpermissive
 TARGET:test.exe CommandParser/libcli.a pkt_gen.exe
 LIBS=-lpthread -L ./CommandParser -lcli
 OBJS=gluethread/glthread.o \
@@ -16,6 +16,7 @@ OBJS=gluethread/glthread.o \
 		  utils.o		   \
 		  Layer2/l2switch.o \
 		  pkt_dump.o	   \
+		  gluethread/test_glue.o \
           WheelTimer/WheelTimer.o
 
 pkt_gen.exe:pkt_gen.o
@@ -24,14 +25,18 @@ pkt_gen.exe:pkt_gen.o
 pkt_gen.o:pkt_gen.c
 	${CC} ${CFLAGS} -c pkt_gen.c -o pkt_gen.o
 
+
 test.exe:testapp.o ${OBJS} CommandParser/libcli.a
 	${CC} ${CFLAGS} testapp.o ${OBJS} -o test.exe ${LIBS}
 
 testapp.o:testapp.c
 	${CC} ${CFLAGS} -c testapp.c -o testapp.o
 
-gluethread/glthread.o:gluethread/glthread.c
-	${CC} ${CFLAGS} -c -I gluethread gluethread/glthread.c -o gluethread/glthread.o
+gluethread/test_glue.o:gluethread/test_glue.cpp
+	${CC} ${CFLAGS} -c -I gluethread gluethread/test_glue.cpp -o gluethread/test_glue.o
+
+gluethread/glthread.o:gluethread/glthread.cpp
+	${CC} ${CFLAGS} -c -I gluethread gluethread/glthread.cpp -o gluethread/glthread.o
 
 WheelTimer/WheelTimer.o:WheelTimer/WheelTimer.c
 	${CC} ${CFLAGS} -c -I gluethread -I WheelTimer WheelTimer/WheelTimer.c -o WheelTimer/WheelTimer.o

@@ -33,22 +33,22 @@ typedef enum{
 
 /*Default validation handlers for Data types*/
 
-CLI_VAL_RC
+int
 int_validation_handler(leaf_t *leaf, char *value_passed);
 
-CLI_VAL_RC
+int
 string_validation_handler(leaf_t *leaf, char *value_passed);
 
-CLI_VAL_RC
+int
 ipv4_validation_handler(leaf_t *leaf, char *value_passed);
 
-CLI_VAL_RC
+int
 ipv6_validation_handler(leaf_t *leaf, char *value_passed);
 
-CLI_VAL_RC
+int
 float_validation_handler(leaf_t *leaf, char *value_passed);
 
-CLI_VAL_RC
+int
 boolean_validation_handler(leaf_t *leaf, char *value_passed);
 
 /* Default command handlers */

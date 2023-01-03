@@ -1,5 +1,5 @@
-CC=gcc
-CFLAGS=-g -Wall
+CC=g++
+CFLAGS=-g -fpermissive
 INCLUDES=-I .
 CLILIB=libcli.a
 TARGET:exe ${CLILIB}

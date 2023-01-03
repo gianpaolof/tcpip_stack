@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include "../graph.h"
 #include "layer2.h"
-#include "../gluethread/glthread.h"
+#include "../gluethread/glthread.hpp"
 #include "comm.h"
 
 /*L2 Switch Owns Mac Table*/
@@ -45,7 +45,7 @@ typedef struct mac_table_entry_{
     char oif_name[IF_NAME_SIZE];
     glthread_t mac_entry_glue;
 } mac_table_entry_t;
-GLTHREAD_TO_STRUCT(mac_entry_glue_to_mac_entry, mac_table_entry_t, mac_entry_glue);
+GLTHREAD_TO_TYPE(mac_entry_glue_to_mac_entry, mac_table_entry_t, mac_entry_glue);
 
 
 typedef struct mac_table_{

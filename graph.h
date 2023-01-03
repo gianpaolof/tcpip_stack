@@ -38,7 +38,7 @@
 #define __GRAPH__
 
 #include <assert.h>
-#include "gluethread/glthread.h"
+#include "gluethread/glthread.hpp"
 #include "net.h"
 
 
@@ -75,8 +75,8 @@ struct node_ {
     int udp_sock_fd;
     node_nw_prop_t node_nw_prop;
 };
-GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
-
+//GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
+GLTHREAD_TO_TYPE(graph_glue_to_node, node_t, graph_glue);
 typedef struct graph_{
 
     char topology_name[32];

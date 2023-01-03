@@ -92,7 +92,7 @@ initialize_ip_hdr(ip_hdr_t *ip_hdr){
 #define IP_HDR_PAYLOAD_SIZE(ip_hdr_ptr) (IP_HDR_TOTAL_LEN_IN_BYTES(ip_hdr_ptr) - \
         IP_HDR_LEN_IN_BYTES(ip_hdr_ptr))
 
-#include "../gluethread/glthread.h"
+#include "../gluethread/glthread.hpp"
 
 typedef struct rt_table_{
 
@@ -108,7 +108,7 @@ typedef struct l3_route_{
     char oif[IF_NAME_SIZE]; /*OIF*/
     glthread_t rt_glue;
 } l3_route_t;
-GLTHREAD_TO_STRUCT(rt_glue_to_l3_route, l3_route_t, rt_glue);
+GLTHREAD_TO_TYPE(rt_glue_to_l3_route, l3_route_t, rt_glue);
 
 void
 init_rt_table(rt_table_t **rt_table);
